@@ -1,0 +1,20 @@
+FROM python:3.8-alpine3.13
+
+
+ENV DEPS="firefox-esr"
+
+COPY requirements.txt /tmp/requirements.txt
+
+RUN apk update ;\
+    apk upgrade ;\
+    apk add bash;\
+    apk add --no-cache ${DEPS} ;\
+    pip install --no-cache-dir -r /tmp/requirements.txt ;\
+    # Install geckodriver
+    wget -q https://github.com/mozilla/geckodriver/releases/download/v0.29.0/geckodriver-v0.29.0-linux64.tar.gz ;\
+    tar -C /usr/bin/ -xf geckodriver-*.tar.gz ;\
+    # List packages and python modules installed
+    apk info -vv | sort ;\
+    pip freeze ;\
+    # Cleanup
+    rm -rf /var/cache/apk/* /tmp/requirements.txt /geckodriver-*.tar.gz
