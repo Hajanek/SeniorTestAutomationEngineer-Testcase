@@ -2,15 +2,9 @@
 Documentation       Task 2 - using selenium and firefox browser
 Library             SeleniumLibrary
 
-#Suite Setup         Run Keywords    Variable Should Exist    ${USER_EMAIL}    Variable ${USER_EMAIL} is missing. You can add it with --variable USER_EMAIL:"your testing email" to your command
-#...                 And             Variable Should Exist    ${USER_EMAIL}    Variable ${PASSWORD} is missing. You can add it with --variable PASSWORD:"your testing password" to your command
-
 *** Variables ***
 ${BASE URL}         https://www.westwingnow.de/
-${BROWSER}          Firefox
-${USER_EMAIL}       jiri.janous@seznam.cz
-${PASSWORD}         Tester      
-
+${BROWSER}          Headless Firefox
 ${TIMEOUT}          15s
 
 *** Test Cases ***
