@@ -7,7 +7,7 @@ cd robot
 mkdir output 
 robot --variablefile variable_file.py -d output testcase.robot 
 ```
-##run tests in docker
+## run tests in docker
 Open concole in the root project dir and run commands
 ```
 cd Docker
